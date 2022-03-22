@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
+import Circle from "./Circle";
 
 function App() {
   return (
-    <div></div>
+    <div>
+      <Circle bgColor="blue" />
+      <Circle bgColor="green" />
+    </div>
   );
 }
 
