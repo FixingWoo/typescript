@@ -1,20 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 
-interface CommonProps {
-    bgColor: string;
+interface ContainerProps {
+    bgColor: string,
+    borderColor: string
 }
 
-const Container = styled.div<CommonProps>`
+interface CircleProps {
+    bgColor: string,
+    borderColor?: string,
+    text?: string 
+}
+
+const Container = styled.div<ContainerProps>`
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-color: ${props => props.bgColor};
+    background-color: ${(props) => props.bgColor};
+    border: 1px solid ${(props) => props.borderColor};
 `;
 
-
-function Circle( { bgColor }: CommonProps) {
-    return <Container bgColor={bgColor}  />
+function Circle( { bgColor, borderColor, text}: CircleProps) {
+    return (
+        <Container bgColor={bgColor} borderColor={borderColor || "black"}>
+            {text}
+        </Container>
+    )
 }
 
 export default Circle;
